@@ -49,37 +49,23 @@
         </c:when>
 
         <c:when test="${mode == 'MODE_SHOW_ALL_TASKS'}">
-            <div class="container  text-center" id="tasksDiv">
+            <div class="container" id="tasksDiv">
                 <h3>My Tasks</h3>
                 <hr>
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered text-left">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Date</th>
-                            <th>Finished</th>
-                            <th></th>
-                            <th> </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="task" items="${tasks}">
-                            <tr>
-                                <td>${task.id}</td>
-                                <td>${task.name}</td>
-                                <td>${task.description}</td>
-                                <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm-ss" value="${task.dateCreated}"/></td>
-                                <td>${task.finished}</td>
-                                <td><a href="updateTask?id=${task.id}"> Update <span class="glyphicon glyphicon-edit"></span></a> </td>
-                                <td><a href="deleteTask?id=${task.id}"> Delete <span class="glyphicon glyphicon-trash"></span></a> </td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
+                <c:forEach var="task" items="${tasks}">
+                    <div class="hero-unit col-md-3">
+                        <div class="bg-info">
+                         <h3>${task.name}</h3>
+                         <p>${task.description}</p>
+                         <p><fmt:formatDate pattern="yyyy-MM-dd HH:mm-ss" value="${task.dateCreated}"/></p>
+                         <p>${task.finished}</p>
+                         <p>
+                            <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col-md-6"> Update <span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="deleteTask?id=${task.id}" class="btn btn-danger btn-large col-md-6"> Delete <span class="glyphicon glyphicon-trash"></span></a>
+                         </p>
+                        </div>
+                     </div>
+                </c:forEach>
             </div>
         </c:when>
 
