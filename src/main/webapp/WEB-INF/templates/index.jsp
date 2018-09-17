@@ -11,14 +11,23 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse">
-            <a href="/" class="navbar-brand"> <span class="glyphicon glyphicon-list-alt"></span> TaskManager</a>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a class="nav-link" href="/"><span class="glyphicon glyphicon-home"></span> Home </a></li>
-                    <li><a class="nav-link" href="createTask"><span class="glyphicon glyphicon-plus"></span> Add Task</a></li>
-                    <li><a class="nav-link" href="tasks"><span class="glyphicon glyphicon-list"></span> Show All Tasks</a> </li>
-                </ul>
-            </div>
+        <a href="/" class="navbar-brand">
+            <span class="glyphicon glyphicon-list-alt"></span> TaskManager
+        </a>
+
+        <div class="collapse navbar-collapse navbar-left">
+            <ul class="nav  navbar-nav mr-auto mt-2 mt-lg-0">
+                <li><a class="nav-link" href="/"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+                <li><a class="nav-link" href="createTask"><span class="glyphicon glyphicon-plus"></span> Add Task</a></li>
+                <li><a class="nav-link" href="tasks"><span class="glyphicon glyphicon-list"></span> Show All Tasks</a> </li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="searchTask">
+                <input class="form-control mr-sm-2" type="search" name="name" value="${task.name}" placeholder="Enter task name" aria-label="Search">
+                <button class="btn btn-outline-success btn-primary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
     </nav>
 
     <c:choose>
@@ -104,18 +113,16 @@
     </c:choose>
 
     <footer class="container-fluid text-center foot navbar-fixed-bottom navbar-default">
-
         <div class="copyrights">
-            <p class="white-txt"> <span class="glyphicon glyphicon-list-alt"></span> my-task-manager.com &copy; 2018
+            <p class="white-txt">
+                <span class="glyphicon glyphicon-list-alt"></span> my-task-manager.com &copy; 2018
             </p>
             <hr class="dark-line">
             <a class="link" href="/">Home</a>&nbsp
             <a class="link" href="createTask">Add task</a>&nbsp
             <a class="link" href="tasks">Show All Tasks</a>
             <br><br>
-            <p class="white-txt small">
-                All rights reserved
-            </p>
+            <p class="white-txt small">All rights reserved</p>
         </div>
     </footer>
 
