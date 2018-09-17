@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.ws.spi.http.HttpExchange;
 import java.util.Date;
-
 
 @Controller
 public class TasksController {
@@ -44,6 +43,13 @@ public class TasksController {
         task.setDateCreated(new Date());
         taskService.addNewTask(task);
         request.setAttribute("tasks",taskService.findAllTasks());
+        request.setAttribute("mode", "MODE_SHOW_ALL_TASKS");
+        return "index";
+    }
+
+    @PostMapping("/searchTask")
+    public String searchTask(@ModelAttribute Task task, BindingResult bindingResult, HttpServletRequest request){
+        request.setAttribute("tasks",  taskService.getTaskByName(task.getName()));
         request.setAttribute("mode", "MODE_SHOW_ALL_TASKS");
         return "index";
     }
