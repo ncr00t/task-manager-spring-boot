@@ -36,4 +36,8 @@ public class TaskService {
     public Task getTaskById(int id){
        return taskRepository.findById(id).get();
     }
+
+    public List<Task> getTaskByName(String name){
+        return taskRepository.findByName(name);
+    }
 }
