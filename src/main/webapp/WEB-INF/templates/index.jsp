@@ -29,7 +29,6 @@
             </form>
         </div>
     </nav>
-
     <c:choose>
         <c:when test="${mode == 'MODE_HOME'}">
             <div class="container" id="homeDiv">
@@ -69,8 +68,12 @@
                          <p><fmt:formatDate pattern="yyyy-MM-dd HH:mm-ss" value="${task.dateCreated}"/></p>
                          <p>${task.finished}</p>
                          <p>
-                            <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col-md-6"> Update <span class="glyphicon glyphicon-edit"></span></a>
-                            <a href="deleteTask?id=${task.id}" class="btn btn-danger btn-large col-md-6"> Delete <span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col-md-6"> Update
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="deleteTask?id=${task.id}" class="btn btn-danger btn-large col-md-6"> Delete
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
                          </p>
                         </div>
                      </div>
