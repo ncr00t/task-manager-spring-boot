@@ -4,13 +4,14 @@ import com.company.tasks.models.Task;
 import com.company.tasks.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.ws.spi.http.HttpExchange;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Controller
@@ -50,6 +51,13 @@ public class TasksController {
     @PostMapping("/searchTask")
     public String searchTask(@ModelAttribute Task task, BindingResult bindingResult, HttpServletRequest request){
         request.setAttribute("tasks",  taskService.getTaskByName(task.getName()));
+        request.setAttribute("mode", "MODE_SHOW_ALL_TASKS");
+        return "index";
+    }
+
+    @PostMapping("/searchTasksByDate")
+    public String searchTaskByDate(@ModelAttribute Task task, BindingResult bindingResult, HttpServletRequest request){
+        request.setAttribute("tasks", taskService.getTaskByDateCreated(task.getDateCreated()));
         request.setAttribute("mode", "MODE_SHOW_ALL_TASKS");
         return "index";
     }
