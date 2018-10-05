@@ -1,7 +1,10 @@
 package com.company.tasks.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Entity(name = "tasks")
@@ -11,7 +14,7 @@ public class Task implements Serializable {
     private int id;
     private String name;
     private String description;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dateCreated;
     private boolean finished;
 
