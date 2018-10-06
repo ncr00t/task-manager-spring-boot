@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -38,6 +39,10 @@ public class TaskService {
     }
 
     public List<Task> getTaskByName(String name){
-        return taskRepository.findByName(name);
+        return taskRepository.findByNameContaining(name);
+    }
+
+    public List<Task> getTaskByDateCreated(Date dateCreated){
+        return taskRepository.findByDateCreated(dateCreated);
     }
 }
