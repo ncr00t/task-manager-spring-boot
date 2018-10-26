@@ -18,3 +18,38 @@ footer{
 	border: 10px double #1E90FF;
 	color: #1E90FF;
 }
+
+h3{
+    text-align: center;
+}
+
+.taskContainer{
+    background-color:#80bdff;
+    border: 1px solid #80bdff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.taskInfo{
+    text-align: center;
+}
+
+.taskName{
+    text-decoration:underline;
+    font-weight: bolder;
+    font-family: Roboto;
+    font-size: 20pt;
+}
+
+.taskDescription{
+    font-weight: lighter;
+    font-family: Roboto;
+    font-size: 16pt;
+}
+
+#taskDate, #taskStatus{
+    text-align: right;
+    font-weight: normal;
+    font-family: Roboto;
+    font-size: 14pt;
+}
