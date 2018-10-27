@@ -2,6 +2,10 @@
     color:#ffffff;
 }
 
+.btn-info{
+    background: #c82333;
+}
+
 body{
     margin-bottom:60px;
 }
@@ -12,11 +16,10 @@ footer{
     width:100%;
     height:60px;
 }
-
 .btn-outline-secondary{
-	background-color: #ffffff;
-	border: 10px double #1E90FF;
-	color: #1E90FF;
+    background-color: #ffffff;
+    border: 10px double #1E90FF;
+    color: #1E90FF;
 }
 
 h3{
@@ -28,6 +31,7 @@ h3{
     border: 1px solid #80bdff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-top: 15px;
 }
 
 .taskInfo{
@@ -47,9 +51,15 @@ h3{
     font-size: 16pt;
 }
 
-#taskDate, #taskStatus{
+.taskDate, .taskStatus{
     text-align: right;
     font-weight: normal;
     font-family: Roboto;
     font-size: 14pt;
+}
+
+.taskStatus{
+    text-decoration: underline;
+    color: #ffffff;
+    font-weight: bolder;
 }
