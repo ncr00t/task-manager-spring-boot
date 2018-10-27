@@ -1,9 +1,13 @@
 package com.company.tasks.services;
 
+import com.company.tasks.dao.CompletedTaskRepository;
 import com.company.tasks.dao.TaskRepository;
+import com.company.tasks.models.CompletedTask;
 import com.company.tasks.models.Task;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sun.security.krb5.internal.PAForUserEnc;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,9 +17,25 @@ import java.util.List;
 @Transactional
 public class TaskService {
     private final TaskRepository taskRepository;
+    private CompletedTaskRepository completedTaskRepository;
 
-    public TaskService(TaskRepository taskRepository) {
+    public TaskService(TaskRepository taskRepository, CompletedTaskRepository completedTaskRepository) {
         this.taskRepository = taskRepository;
+        this.completedTaskRepository = completedTaskRepository;
+    }
+
+    public void addInCompletedTasks(int id){
+        Task findedTask = getTaskById(id);
+        findedTask.setFinished(true);
+        completedTaskRepository.save(new CompletedTask(findedTask));
+    }
+
+    public List<Task> findAllCompletedTasks(){
+        List<Task> completedTasks = new ArrayList<>();
+        for(CompletedTask task : completedTaskRepository.findAll() ){
+            completedTasks.add(task.getTask());
+        }
+        return completedTasks;
     }
 
     public List<Task> findAllTasks(){
@@ -32,6 +52,14 @@ public class TaskService {
 
     public void deleteTaskById(int id){
         taskRepository.deleteById(id);
+    }
+
+    public void deleteCompletedTaskById(int id){
+        for(CompletedTask completedTask : completedTaskRepository.findAll()){
+            if(completedTask.getTask().getId() == id){
+                completedTaskRepository.deleteById(completedTask.getId());
+            }
+        }
     }
 
     public Task getTaskById(int id){

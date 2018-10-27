@@ -4,14 +4,13 @@ import com.company.tasks.models.Task;
 import com.company.tasks.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Controller
@@ -28,6 +27,21 @@ public class TasksController {
 
     @GetMapping("/tasks")
     public String tasks(HttpServletRequest request){
+        request.setAttribute("tasks", taskService.findAllTasks());
+        request.setAttribute("mode","MODE_SHOW_ALL_TASKS");
+        return "index";
+    }
+
+    @GetMapping("/completedTasks")
+    public String completedasks(HttpServletRequest request){
+        request.setAttribute("tasks", taskService.findAllCompletedTasks());
+        request.setAttribute("mode","MODE_SHOW_COMPLETED_TASKS");
+        return "index";
+    }
+
+    @GetMapping("/addInCompletedTasks")
+    public String addInCompletedTasks(@RequestParam int id, HttpServletRequest request){
+        taskService.addInCompletedTasks(id);
         request.setAttribute("tasks", taskService.findAllTasks());
         request.setAttribute("mode","MODE_SHOW_ALL_TASKS");
         return "index";
@@ -74,6 +88,15 @@ public class TasksController {
         taskService.deleteTaskById(id);
         request.setAttribute("tasks", taskService.findAllTasks());
         request.setAttribute("mode","MODE_SHOW_ALL_TASKS");
+        return "index";
+    }
+
+    @GetMapping("/deleteCompletedTask")
+    public String deleteCompletedTask(@RequestParam int id, HttpServletRequest request){
+        taskService.deleteCompletedTaskById(id);
+        taskService.deleteTaskById(id);
+        request.setAttribute("tasks", taskService.findAllCompletedTasks());
+        request.setAttribute("mode","MODE_SHOW_COMPLETED_TASKS");
         return "index";
     }
 }

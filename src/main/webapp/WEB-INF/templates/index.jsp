@@ -29,7 +29,8 @@
             <ul class="nav navbar-nav mr-auto mt-2 mt-lg-0">
                 <li><a class="nav-link" href="/"><span class="fas fa-home"></span>  Home </a></li>
                 <li><a class="nav-link" href="createTask"><span class="fas fa-plus"></span>  Add Task</a></li>
-                <li><a class="nav-link" href="tasks"><span class="far fa-list-alt"></span>  Show All Tasks</a> </li>
+                <li><a class="nav-link" href="tasks"><span class="far fa-list-alt"></span> All Tasks</a> </li>
+                <li><a class="nav-link" href="completedTasks"><span class="fas fa-check"></span> Completed Tasks</a> </li>
             </ul>
         </div>
         <div class="navbar-right row">
@@ -76,33 +77,66 @@
 
         <c:when test="${mode == 'MODE_SHOW_ALL_TASKS'}">
             <div class="container" id="tasksDiv">
-                <h3>My Tasks</h3>
+                <h3>All Tasks</h3>
                 <hr>
-                <div id="sortable" class="row">
-                    <c:forEach var="task" items="${tasks}">
-                     <div class="hero-unit col-md-3" >
-                            <div class="taskContainer">
+                <div>
+                    <div class="sortable row">
+                      <c:forEach var="task" items="${tasks}">
+                        <div class="hero-unit col-3" >
+                             <div class="taskContainer">
                                 <h3>${task.name}</h3>
                                 <div class="taskInfo">
                                   <p class="taskDescription">${task.description}</p>
                                 </div>
-                                  <p id="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
-                                  <p id="taskStatus">${task.finished == false ? 'Active' : 'Completed'}</p>
+                                  <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
+                                  <p class="taskStatus">${task.finished == false ? 'Active' : 'Completed'}</p>
                                   <p>
-                                      <a href="deleteTask?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
+                                      <a href="addInCompletedTasks?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
                                           <span class="fas fa-check"></span>
                                       </a>
                                       <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col col-md"> Update
                                           <span class="fas fa-edit"></span>
                                       </a>
                                   </p>
-                          </div>
-                     </div>
-                    </c:forEach>
-                </div>
+                              </div>
+                         </div>
+                      </c:forEach>
+                   </div>
                 <hr>
             </div>
         </c:when>
+
+        <c:when test="${mode == 'MODE_SHOW_COMPLETED_TASKS'}">
+                <div class="container" id="tasksDiv">
+                    <h3>All Completed Tasks</h3>
+                    <hr>
+                    <div>
+                        <div class="sortable row">
+                            <c:forEach var="task" items="${tasks}">
+                                <div class="hero-unit col-3" >
+                                    <div class="taskContainer">
+                                        <h3>${task.name}</h3>
+                                        <div class="taskInfo">
+                                            <p class="taskDescription">${task.description}</p>
+                                        </div>
+                                        <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
+                                        <p class="taskStatus">${task.finished == false ? 'Active' : 'Completed'}</p>
+                                        <p>
+                                            <a href="deleteCompletedTask?id=${task.id}" class="completedBtn btn btn-info btn-large col col-md"  > Delete
+                                                <span class="fas fa-trash-alt"></span>
+                                            </a>
+                                            <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col col-md"> Update
+                                                <span class="fas fa-edit"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <hr>
+                    </div>
+        </c:when>
+
 
         <c:when test="${mode == 'MODE_CREATE_TASK' || mode == 'MODE_UPDATE_TASK'}">
             <div class="container text-center">
