@@ -8,6 +8,8 @@
 
 body{
     margin-bottom:60px;
+    background: url("../../static/images/background.jpg") no-repeat;
+    background-size: 100%;
 }
 
 footer{
