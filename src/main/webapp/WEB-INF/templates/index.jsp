@@ -77,7 +77,7 @@
 
         <c:when test="${mode == 'MODE_SHOW_ALL_TASKS'}">
             <div class="container" id="tasksDiv">
-                <h3>All Tasks</h3>
+                <h3>All Tasks (${tasks.size()})</h3>
                 <hr>
                 <div>
                     <div class="sortable row">
