@@ -58,14 +58,14 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="hero-unit col-sm-3">
+                <div class="hero-unit col-md-3">
                     <h1>Add Task </h1>
                     <p>You can add new task.</p>
                     <p>
                         <a href="createTask" class="btn btn-primary btn-large">Add Task <span class="fas fa-plus"></span></a>
                     </p>
                  </div>
-                <div class="hero-unit col-sm-2">
+                <div class="hero-unit col-md-1">
                     <h1>Show Tasks </h1>
                     <p>You see all tasks.</p>
                     <p>
@@ -144,13 +144,13 @@
                 <form class="form-horizontal"  method="POST" action="saveTask">
                     <input type="hidden" name="id" value="${task.id}"/>
                     <div class="form-group">
-                        `   <label class="control-label col-md-3">Name</label>
+                        `   <label class="control-label col-md-1">Name</label>
                         <div class="col-md-7">
                             <input type="text" class="form-control" name="name" value="${task.name}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3">Description</label>
+                        <label class="control-label col-md-1">Description</label>
                         <div class="col-md-7">
                             <input type="text" class="form-control" name="description" value="${task.description}"/>
                         </div>
