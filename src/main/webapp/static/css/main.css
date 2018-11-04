@@ -31,6 +31,12 @@ h3{
     font-size: 22pt;
 }
 
+hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
 .taskContainer{
     background-color:#80bdff;
     border: 1px solid #80bdff;
