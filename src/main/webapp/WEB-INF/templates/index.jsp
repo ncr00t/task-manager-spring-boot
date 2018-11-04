@@ -108,7 +108,7 @@
 
         <c:when test="${mode == 'MODE_SHOW_COMPLETED_TASKS'}">
                 <div class="container" id="tasksDiv">
-                    <h3>All Completed Tasks</h3>
+                    <h3>All Completed Tasks (${tasks.size()})</h3>
                     <hr>
                     <div>
                         <div class="sortable row">
