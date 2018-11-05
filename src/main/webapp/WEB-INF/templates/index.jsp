@@ -77,7 +77,6 @@
 
         <c:when test="${mode == 'MODE_SHOW_ALL_TASKS'}">
             <div class="container" id="tasksDiv">
-                <br>
                 <h3>All Tasks (${tasks.size()})</h3>
                 <hr>
                 <div>
@@ -109,7 +108,6 @@
 
         <c:when test="${mode == 'MODE_SHOW_COMPLETED_TASKS'}">
                 <div class="container" id="tasksDiv">
-                    <br>
                     <h3>All Completed Tasks (${tasks.size()})</h3>
                     <hr>
                     <div>
