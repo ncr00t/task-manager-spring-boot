@@ -141,33 +141,29 @@
 
 
         <c:when test="${mode == 'MODE_CREATE_TASK' || mode == 'MODE_UPDATE_TASK'}">
-            <div class="container text-center">
-                <h3>Manage Tasks</h3>
+            <div  class="container text-center createTaskContainer">
+                <br>
+                <h3>${mode == 'MODE_CREATE_TASK' ? 'Create Task' : 'Update Task'}</h3>
                 <form class="form-horizontal"  method="POST" action="saveTask">
                     <input type="hidden" name="id" value="${task.id}"/>
-                    <div class="form-group">
-                        `   <label class="control-label col-md-1">Name</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" name="name" value="${task.name}"/>
-                        </div>
+                    <div id="nameDiv" class="form-group">
+                        <input type="text" class="form-control col-md-10 textField" name="name" placeholder="Enter task name" value="${task.name}"/>
+                     </div>
+
+                    <div id="descriptionDiv">
+                        <input type="text" class="form-control col-md-10 textField" name="description" placeholder="Enter task description" value="${task.description}"/>
+                    </div>
+
+                    <div id="finishedDiv" class="rows">
+                        <label class="control-label col-md-2">Completed?</label>
+                        <br>
+                        <input type="radio" class="col-sm-1" name="finished" value="true"/>
+                        <div class="col-sm-1 answerDiv">Yes</div>
+                        <input type="radio" class="col-sm-1 answerDiv" name="finished" value="false" checked/>
+                        <div class="col-sm-1 answerDiv">No</div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-1">Description</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" name="description" value="${task.description}"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Finished</label>
-                        <div class="col-md-7">
-                            <input type="radio" class="col-sm-1" name="finished" value="true"/>
-                            <div class="col-sm-1">Yes</div>
-                            <input type="radio" class="col-sm-1" name="finished" value="false" checked/>
-                            <div class="col-sm-1">No</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Save"/>
+                        <input id="submitBtn" type="submit" class="btn btn-primary" value="${mode == 'MODE_CREATE_TASK' ? 'Create' : 'Update'}"/>
                     </div>
                 </form>
             </div>
