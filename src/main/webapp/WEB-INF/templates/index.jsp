@@ -31,6 +31,7 @@
                 <li><a class="nav-link" href="createTask"><span class="fas fa-plus"></span>  Add Task</a></li>
                 <li><a class="nav-link" href="tasks"><span class="far fa-list-alt"></span> All Tasks</a> </li>
                 <li><a class="nav-link" href="completedTasks"><span class="fas fa-check"></span> Completed Tasks</a> </li>
+                <li><a class="nav-link" href="tasksInWork"><span class="fas fa-check"></span> Tasks in work</a> </li>
             </ul>
         </div>
         <div class="navbar-right row">
@@ -171,7 +172,7 @@
     <footer class="row-fluid text-center navbar-fixed-bottom navbar-default">
         <div class="copyrights">
             <p class="white-txt">
-                <span class="glyphicon glyphicon-list-alt"></span> my-task-manager.com &copy; 2018
+                <span class="fas fa-tasks fa-lg siteLabel"></span> my-task-manager.com &copy; 2018
             </p>
             <hr class="dark-line">
             <a class="link" href="/">Home</a>&nbsp
