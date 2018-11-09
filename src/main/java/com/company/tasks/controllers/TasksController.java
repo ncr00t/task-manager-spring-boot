@@ -39,6 +39,13 @@ public class TasksController {
         return "index";
     }
 
+    @GetMapping("/tasksInWork")
+    public String tasksInWork(HttpServletRequest request){
+        request.setAttribute("tasks", taskService.findAllTasksInWork());
+        request.setAttribute("mode", "MODE_SHOW_TASKS_IN_WORK");
+        return "index";
+    }
+
     @GetMapping("/addInCompletedTasks")
     public String addInCompletedTasks(@RequestParam int id, HttpServletRequest request){
         taskService.addInCompletedTasks(id);
