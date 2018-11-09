@@ -30,8 +30,8 @@
                 <li><a class="nav-link" href="/"><span class="fas fa-home"></span>  Home </a></li>
                 <li><a class="nav-link" href="createTask"><span class="fas fa-plus"></span>  Add Task</a></li>
                 <li><a class="nav-link" href="tasks"><span class="far fa-list-alt"></span> All Tasks</a> </li>
-                <li><a class="nav-link" href="completedTasks"><span class="fas fa-check"></span> Completed Tasks</a> </li>
-                <li><a class="nav-link" href="tasksInWork"><span class="fas fa-check"></span> Tasks in work</a> </li>
+                <li><a class="nav-link" href="tasksInWork"><span class="fas fa-clipboard-list"></span> Tasks in work</a> </li>
+                <li><a class="nav-link" href="completedTasks"><span class="fas fa-clipboard-check"></span> Completed Tasks</a> </li>
             </ul>
         </div>
         <div class="navbar-right row">
@@ -90,7 +90,7 @@
                                   <p class="taskDescription">${task.description}</p>
                                 </div>
                                   <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
-                                  <p class="taskStatus">${task.finished == false ? 'Active' : 'Completed'}</p>
+                                  <p class="taskStatus">${task.finished == false ? 'Task in work' : 'Completed'}</p>
                                   <p>
                                       <a href="addInCompletedTasks?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
                                           <span class="fas fa-check"></span>
@@ -109,7 +109,7 @@
 
         <c:when test="${mode == 'MODE_SHOW_COMPLETED_TASKS'}">
                 <div class="container" id="tasksDiv">
-                    <h3>All Completed Tasks (${tasks.size()})</h3>
+                    <h3>Completed Tasks (${tasks.size()})</h3>
                     <hr>
                     <div>
                         <div class="sortable row">
@@ -121,7 +121,7 @@
                                             <p class="taskDescription">${task.description}</p>
                                         </div>
                                         <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
-                                        <p class="taskStatus">${task.finished == false ? 'Active' : 'Completed'}</p>
+                                        <p class="taskStatus">${task.finished == false ? 'Task in work' : 'Completed'}</p>
                                         <p>
                                             <a href="deleteCompletedTask?id=${task.id}" class="completedBtn btn btn-info btn-large col col-md"  > Delete
                                                 <span class="fas fa-trash-alt"></span>
@@ -138,9 +138,9 @@
                     </div>
         </c:when>
 
-         <c:when test="${mode == 'MODE_SHOW_TASKS_WORK'}">
+         <c:when test="${mode == 'MODE_SHOW_TASKS_IN_WORK'}">
                <div class="container" id="tasksDiv">
-                   <h3>All Completed Tasks (${tasks.size()})</h3>
+                   <h3>Tasks in work (${tasks.size()})</h3>
                    <hr>
                    <div>
                       <div class="sortable row">
@@ -152,10 +152,10 @@
                                           <p class="taskDescription">${task.description}</p>
                                           </div>
                                           <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
-                                          <p class="taskStatus">${task.finished == false ? 'Active' : 'Completed'}</p>
+                                          <p class="taskStatus">${task.finished == false ? 'Task in work' : 'Completed'}</p>
                                           <p>
-                                             <a href="deleteCompletedTask?id=${task.id}" class="completedBtn btn btn-info btn-large col col-md"  > Delete
-                                                 <span class="fas fa-trash-alt"></span>
+                                              <a href="addInCompletedTasks?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
+                                                  <span class="fas fa-check"></span>
                                               </a>
                                               <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col col-md"> Update
                                                   <span class="fas fa-edit"></span>
