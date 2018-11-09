@@ -4,11 +4,8 @@ import com.company.tasks.dao.CompletedTaskRepository;
 import com.company.tasks.dao.TaskRepository;
 import com.company.tasks.models.CompletedTask;
 import com.company.tasks.models.Task;
-import com.company.tasks.models.TaskInWork;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sun.security.krb5.internal.PAForUserEnc;
 
 import java.util.ArrayList;
 import java.util.Date;
