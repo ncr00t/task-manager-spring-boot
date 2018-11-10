@@ -78,7 +78,7 @@
 
         <c:when test="${mode == 'MODE_SHOW_ALL_TASKS'}">
             <div class="container" id="tasksDiv">
-                <h3>All Tasks (${tasks.size()})</h3>
+                <h3> ${tasks.size() != 0 ? "All tasks" : "No task created"} (${tasks.size()}) </h3>
                 <hr>
                 <div>
                     <div class="sortable row">
@@ -92,7 +92,7 @@
                                   <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
                                   <p class="taskStatus">${task.finished == false ? 'Task in work' : 'Completed'}</p>
                                   <p>
-                                      <a href="makeTaskCompleted?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
+                                      <a href="makeTaskCompleted?id=${task.id}" class="btn btn-success <c:if test="${task.finished}"> disabled</c:if> btn-large col col-md"  style="background-color: #71dd8a"> Done
                                           <span class="fas fa-check"></span>
                                       </a>
                                       <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col col-md"> Update
@@ -109,7 +109,7 @@
 
         <c:when test="${mode == 'MODE_SHOW_COMPLETED_TASKS'}">
                 <div class="container" id="tasksDiv">
-                    <h3>Completed Tasks (${tasks.size()})</h3>
+                    <h3>${tasks.size() != 0 ? "Completed Tasks " : "Completed Tasks not found "} (${tasks.size()})</h3>
                     <hr>
                     <div>
                         <div class="sortable row">
@@ -140,7 +140,7 @@
 
          <c:when test="${mode == 'MODE_SHOW_TASKS_IN_WORK'}">
                <div class="container" id="tasksDiv">
-                   <h3>Tasks in work (${tasks.size()})</h3>
+                   <h3>${tasks.size() != 0 ? "Tasks in work" : "Task in work not found"} (${tasks.size()})</h3>
                    <hr>
                    <div>
                       <div class="sortable row">
@@ -154,7 +154,7 @@
                                           <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
                                           <p class="taskStatus">${task.finished == false ? 'Task in work' : 'Completed'}</p>
                                           <p>
-                                              <a href="makeTaskCompleted?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
+                                              <a href="makeTaskCompleted?id=${task.id}" class="btn ${task.finished == false ? 'btn-success' : 'disabled'} btn-large col col-md"  style="background-color: #71dd8a"> Done
                                                   <span class="fas fa-check"></span>
                                               </a>
                                               <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col col-md"> Update
@@ -165,7 +165,7 @@
                                   </div>
                               </c:forEach>
                        </div>
-                         <hr>
+                       <hr>
                 </div>
            </c:when>
 
