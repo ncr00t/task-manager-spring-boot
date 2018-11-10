@@ -22,10 +22,9 @@ public class TaskService {
         this.completedTaskRepository = completedTaskRepository;
     }
 
-    public void addInCompletedTasks(int id){
+    public void makeCompleted(int id){
         Task findedTask = getTaskById(id);
         findedTask.setFinished(true);
-        completedTaskRepository.save(new CompletedTask(findedTask));
     }
 
     public List<Task> findAllCompletedTasks(){
