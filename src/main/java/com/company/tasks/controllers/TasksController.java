@@ -46,10 +46,10 @@ public class TasksController {
         return "index";
     }
 
-    @GetMapping("/addInCompletedTasks")
+    @GetMapping("/makeTaskCompleted")
     public String addInCompletedTasks(@RequestParam int id, HttpServletRequest request){
-        taskService.addInCompletedTasks(id);
-        request.setAttribute("tasks", taskService.findAllTasks());
+        taskService.makeCompleted(id);
+        request.setAttribute("tasks", taskService.findAllCompletedTasks());
         request.setAttribute("mode","MODE_SHOW_ALL_TASKS");
         return "index";
     }
