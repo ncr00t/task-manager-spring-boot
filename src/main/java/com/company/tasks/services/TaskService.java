@@ -15,11 +15,9 @@ import java.util.List;
 @Transactional
 public class TaskService {
     private final TaskRepository taskRepository;
-    private CompletedTaskRepository completedTaskRepository;
 
-    public TaskService(TaskRepository taskRepository, CompletedTaskRepository completedTaskRepository) {
+    public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
-        this.completedTaskRepository = completedTaskRepository;
     }
 
     public void makeCompleted(int id){
@@ -29,8 +27,10 @@ public class TaskService {
 
     public List<Task> findAllCompletedTasks(){
         List<Task> completedTasks = new ArrayList<>();
-        for(CompletedTask task : completedTaskRepository.findAll() ){
-            completedTasks.add(task.getTask());
+        for(Task task : taskRepository.findAll() ){
+            if( task.isFinished() ) {
+                completedTasks.add(task);
+            }
         }
         return completedTasks;
     }
