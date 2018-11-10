@@ -92,7 +92,7 @@
                                   <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
                                   <p class="taskStatus">${task.finished == false ? 'Task in work' : 'Completed'}</p>
                                   <p>
-                                      <a href="addInCompletedTasks?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
+                                      <a href="makeTaskCompleted?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
                                           <span class="fas fa-check"></span>
                                       </a>
                                       <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col col-md"> Update
@@ -154,7 +154,7 @@
                                           <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
                                           <p class="taskStatus">${task.finished == false ? 'Task in work' : 'Completed'}</p>
                                           <p>
-                                              <a href="addInCompletedTasks?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
+                                              <a href="makeTaskCompleted?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
                                                   <span class="fas fa-check"></span>
                                               </a>
                                               <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col col-md"> Update
