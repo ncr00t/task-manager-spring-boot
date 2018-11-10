@@ -61,14 +61,6 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
-    public void deleteCompletedTaskById(int id){
-        for(CompletedTask completedTask : completedTaskRepository.findAll()){
-            if(completedTask.getTask().getId() == id){
-                completedTaskRepository.deleteById(completedTask.getId());
-            }
-        }
-    }
-
     public Task getTaskById(int id){
        return taskRepository.findById(id).get();
     }
