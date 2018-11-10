@@ -1,8 +1,6 @@
 package com.company.tasks.services;
 
-import com.company.tasks.dao.CompletedTaskRepository;
 import com.company.tasks.dao.TaskRepository;
-import com.company.tasks.models.CompletedTask;
 import com.company.tasks.models.Task;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
