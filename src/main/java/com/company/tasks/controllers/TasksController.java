@@ -100,7 +100,6 @@ public class TasksController {
 
     @GetMapping("/deleteCompletedTask")
     public String deleteCompletedTask(@RequestParam int id, HttpServletRequest request){
-        taskService.deleteCompletedTaskById(id);
         taskService.deleteTaskById(id);
         request.setAttribute("tasks", taskService.findAllCompletedTasks());
         request.setAttribute("mode","MODE_SHOW_COMPLETED_TASKS");
