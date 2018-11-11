@@ -1,10 +1,7 @@
 package com.company.tasks.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 
 @Entity(name = "tasks")
