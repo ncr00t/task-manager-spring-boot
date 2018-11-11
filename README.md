@@ -15,7 +15,7 @@ For add a task you need to fill in fields:
 # Statistics complete
 
 
-You can see the task execution statistics on the tab "Statistics"
+You can see the task execution statistics on the tab "Statistics complete"
 
 ![statistics_complete](https://user-images.githubusercontent.com/12431839/48320065-3c52b880-e626-11e8-838f-0d31bef4f969.png)
 
