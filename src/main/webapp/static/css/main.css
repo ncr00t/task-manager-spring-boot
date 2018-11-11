@@ -42,9 +42,9 @@ a.disabled {
 }
 
 a.disabled {
-    pointer-events: none; /* делаем элемент неактивным для взаимодействия */
-    cursor: default; /*  курсор в виде стрелки */
-    color: #888;/* цвет текста серый */
+    pointer-events: none;
+    cursor: default;
+    color: #888;
 }
 
 footer{
@@ -75,6 +75,23 @@ hr{
 
 #nameDiv,#descriptionDiv, #finishedDiv{
     text-align: left;
+}
+
+#divForSearchByDate{
+    display: block;
+    width: 600px;
+    margin-left: 260px;
+    margin-top: -38px;
+    margin-right: 10px;
+}
+
+#searchTasksByDateForm{
+    width: 600px;
+}
+
+#divForSearchByName{
+    width: 550px;
+    margin-right: 10px;
 }
 
 .textField{

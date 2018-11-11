@@ -34,14 +34,14 @@
                 <li><a class="nav-link" href="completedTasks"><span class="fas fa-clipboard-check"></span> Completed Tasks</a> </li>
             </ul>
         </div>
-        <div class="navbar-right row">
-            <form class="form-inline row align-items-center col-sm-6" method="POST" action="searchTask" style="height: 30px; width: 430px;" >
+        <div class="navbar-right row" id="divForSearchByName">
+            <form class="form-inline row align-items-center col-sm-6" method="POST" action="searchTask" id="searchTasksByNameForm" >
                 <input class="form-control col-sm-8" type="search" width="200" name="name" value="${task.name}" placeholder="Enter task name" aria-label="Search" >
                 <button class="btn btn-primary col-sm-4" type="submit">Search</button>
             </form>
-            <div class="container col-sm-6" id="formForSearchByDate">
-                <form class="form-inline row align-items-center"  method="POST" action="searchTasksByDate">
-                    <input id="datepicker" name="dateCreated" placeholder="Search on date( mm/dd/yyyy )" width="276" />
+            <div class="navbar-right row" id="divForSearchByDate">
+                <form class="form-inline align-items-center col-sm-6"  method="POST" action="searchTasksByDate" id="searchTasksByDateForm">
+                    <input id="datepicker" name="dateCreated" placeholder="Select date( mm/dd/yyyy )"/>
                     <script>
                         $('#datepicker').datepicker({
                             uiLibrary: 'bootstrap4'
@@ -154,7 +154,7 @@
                                           <p class="taskDate"><fmt:formatDate pattern="yyyy/MM/dd" value="${task.dateCreated}"/></p>
                                           <p class="taskStatus">${task.finished == false ? 'Task in work' : 'Completed'}</p>
                                           <p>
-                                              <a href="makeTaskCompleted?id=${task.id}" class="btn ${task.finished == false ? 'btn-success' : 'disabled'} btn-large col col-md"  style="background-color: #71dd8a"> Done
+                                              <a href="makeTaskCompleted?id=${task.id}" class="btn btn-success btn-large col col-md"  style="background-color: #71dd8a"> Done
                                                   <span class="fas fa-check"></span>
                                               </a>
                                               <a href="updateTask?id=${task.id}" class="btn btn-primary btn-large col col-md"> Update
@@ -169,35 +169,34 @@
                 </div>
            </c:when>
 
+           <c:when test="${mode == 'MODE_CREATE_TASK' || mode == 'MODE_UPDATE_TASK'}">
+                 <div  class="container text-center createTaskContainer">
+                  <br>
+                  <h3>${mode == 'MODE_CREATE_TASK' ? 'Create Task' : 'Update Task'}</h3>
+                    <form class="form-horizontal"  method="POST" action="saveTask">
+                      <input type="hidden" name="id" value="${task.id}"/>
+                       <div id="nameDiv" class="form-group">
+                          <input type="text" class="form-control col-md-10 textField" name="name" placeholder="Enter task name" value="${task.name}"/>
+                       </div>
 
-                    <c:when test="${mode == 'MODE_CREATE_TASK' || mode == 'MODE_UPDATE_TASK'}">
-            <div  class="container text-center createTaskContainer">
-                <br>
-                <h3>${mode == 'MODE_CREATE_TASK' ? 'Create Task' : 'Update Task'}</h3>
-                <form class="form-horizontal"  method="POST" action="saveTask">
-                    <input type="hidden" name="id" value="${task.id}"/>
-                    <div id="nameDiv" class="form-group">
-                        <input type="text" class="form-control col-md-10 textField" name="name" placeholder="Enter task name" value="${task.name}"/>
-                     </div>
+                       <div id="descriptionDiv">
+                          <input type="text" class="form-control col-md-10 textField" name="description" placeholder="Enter task description" value="${task.description}"/>
+                       </div>
 
-                    <div id="descriptionDiv">
-                        <input type="text" class="form-control col-md-10 textField" name="description" placeholder="Enter task description" value="${task.description}"/>
-                    </div>
-
-                    <div id="finishedDiv" class="rows">
-                        <label class="control-label col-md-2">Completed?</label>
-                        <br>
-                        <input type="radio" class="col-sm-1" name="finished" value="true"/>
-                        <div class="col-sm-1 answerDiv">Yes</div>
-                        <input type="radio" class="col-sm-1 answerDiv" name="finished" value="false" checked/>
-                        <div class="col-sm-1 answerDiv">No</div>
-                    </div>
-                    <div class="form-group">
-                        <input id="submitBtn" type="submit" class="btn btn-primary" value="${mode == 'MODE_CREATE_TASK' ? 'Create' : 'Update'}"/>
-                    </div>
-                </form>
-            </div>
-        </c:when>
+                       <div id="finishedDiv" class="rows">
+                          <label class="control-label col-md-2">Completed?</label>
+                          <br>
+                          <input type="radio" class="col-sm-1" name="finished" value="true"/>
+                          <div class="col-sm-1 answerDiv">Yes</div>
+                          <input type="radio" class="col-sm-1 answerDiv" name="finished" value="false" checked/>
+                          <div class="col-sm-1 answerDiv">No</div>
+                       </div>
+                       <div class="form-group">
+                          <input id="submitBtn" type="submit" class="btn btn-primary" value="${mode == 'MODE_CREATE_TASK' ? 'Create' : 'Update'}"/>
+                       </div>
+                     </form>
+                   </div>
+           </c:when>
     </c:choose>
 
     <footer class="row-fluid text-center navbar-fixed-bottom navbar-default">
