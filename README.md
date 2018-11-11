@@ -32,5 +32,8 @@ Completed tasks can be viewed in the "Completed Tasks" tab and they can be marke
 
 ![completed_tasks](https://user-images.githubusercontent.com/12431839/48307628-e9afc880-e561-11e8-9993-5f79d8358e1f.png)
 
-# All rights reserved
+
+# License
+
+Copyright (c) 2018 Ivanisenko Roman Licensed under the MIT license.
 
