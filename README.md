@@ -12,6 +12,14 @@ For add a task you need to fill in fields:
 ![add_new_task](https://user-images.githubusercontent.com/12431839/48307702-70b17080-e563-11e8-9a63-6ad29609073f.png)
 
 
+# Statistics complete
+
+
+You can see the task execution statistics on the tab "Statistics"
+
+![statistics_complete](https://user-images.githubusercontent.com/12431839/48320065-3c52b880-e626-11e8-838f-0d31bef4f969.png)
+
+
 # All tasks
 
 All tasks are shown here and they can be marked as completed or edited.
