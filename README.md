@@ -4,7 +4,12 @@ This task manager developed using Spring Boot, Spring Data, Hibernate, Bootstrap
 # About
 
 The application being developed is a simple task manager for creating, editing, modifying, deleting and searching tasks
+
 ![main_page](https://user-images.githubusercontent.com/12431839/48307618-c258fb80-e561-11e8-8d3b-fc5dac55c60d.png)
+
+For add a task you need to fill in fields:
+
+![add_new_task](https://user-images.githubusercontent.com/12431839/48307702-70b17080-e563-11e8-9a63-6ad29609073f.png)
 
 Tasks are presented in the following form and can be marked as completed or edited. 
 
