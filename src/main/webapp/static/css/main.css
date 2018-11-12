@@ -22,31 +22,6 @@ a.disabled {
     color: #888;
 }
 
-
-
-.semi-transparent-button {
-    display: block;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 8px;
-    width: 80%;
-    max-width: 200px;
-    background: #fff; /* запасной цвет для старых браузеров */
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    letter-spacing: 1px;
-    transition: all 0.3s ease-out;
-}
-
-a.disabled {
-    pointer-events: none;
-    cursor: default;
-    color: #888;
-}
-
 footer{
     position:absolute;
     bottom:0;
@@ -79,18 +54,18 @@ hr{
 
 #divForSearchByDate{
     display: block;
-    width: 600px;
+    width: 580px;
     margin-left: 260px;
     margin-top: -38px;
     margin-right: 10px;
 }
 
 #searchTasksByDateForm{
-    width: 600px;
+    width: 580px;
 }
 
 #divForSearchByName{
-    width: 550px;
+    width: 600px;
     margin-right: 10px;
 }
 
@@ -106,6 +81,14 @@ label{
     width: 120px;
     height: 55px;
     font-weight: bold;
+}
+
+#statisticsDiv{
+    width:800px;
+    margin: 150px auto 0 auto;
+    background: rgba(0,0,0,0.1);
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 .createTaskContainer{
