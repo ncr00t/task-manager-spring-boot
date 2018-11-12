@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
     <script src="../../static/js/draggable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
     <link rel="stylesheet" href="../../static/css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" type="text/css"/>
@@ -32,6 +33,7 @@
                 <li><a class="nav-link" href="tasks"><span class="far fa-list-alt"></span> All Tasks</a> </li>
                 <li><a class="nav-link" href="tasksInWork"><span class="fas fa-clipboard-list"></span> Tasks in work</a> </li>
                 <li><a class="nav-link" href="completedTasks"><span class="fas fa-clipboard-check"></span> Completed Tasks</a> </li>
+                <li><a class="nav-link" href="statisticsComplete"><span class="fas fa-chart-bar"></span> Statistics complete</a> </li>
             </ul>
         </div>
         <div class="navbar-right row" id="divForSearchByName">
@@ -73,6 +75,22 @@
                         <a href="tasks" class="btn btn-primary btn-large">Show Tasks <span class="far fa-list-alt"></span></a>
                     </p>
                 </div>
+            </div>
+        </c:when>
+
+        <c:when test="${mode == 'MODE_SHOW_STATISTICS_COMPLETE'}">
+            <div class="container" id="statisticsDiv">
+                <c:choose>
+                    <c:when test="${countCompletedTasks == 0 && countTasksInWork == 0}">
+                        <h3>No created tasks</h3>
+                    </c:when>
+                    <c:otherwise>
+                        <canvas id="myChart"></canvas>
+                        <input id='countAllTasks' type='hidden' value='${countAllTasks}' />
+                        <input id='countCompletedTasks' type='hidden' value='${countCompletedTasks}'/>
+                        <script type="text/javascript" src="../../static/js/drawChart.js"></script>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </c:when>
 
