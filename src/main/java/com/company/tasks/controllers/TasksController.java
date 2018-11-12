@@ -105,4 +105,15 @@ public class TasksController {
         request.setAttribute("mode","MODE_SHOW_COMPLETED_TASKS");
         return "index";
     }
+
+    @GetMapping("/statisticsComplete")
+    public String statisticsComplete(HttpServletRequest request){
+        int countAllTasks = taskService.findAllTasks().size();
+        int countCompletedTasks = taskService.findAllCompletedTasks().size();
+
+        request.setAttribute("countAllTasks", countAllTasks);
+        request.setAttribute("countCompletedTasks", countCompletedTasks);
+        request.setAttribute("mode", "MODE_SHOW_STATISTICS_COMPLETE");
+        return "index";
+    }
 }
