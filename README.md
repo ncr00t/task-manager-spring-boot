@@ -7,18 +7,6 @@ The application being developed is a simple task manager for creating, editing, 
 
 ![main_page](https://user-images.githubusercontent.com/12431839/48307618-c258fb80-e561-11e8-8d3b-fc5dac55c60d.png)
 
-For add a task you need to fill in fields:
-
-![add_new_task](https://user-images.githubusercontent.com/12431839/48307702-70b17080-e563-11e8-9a63-6ad29609073f.png)
-
-
-# Statistics complete
-
-
-You can see the task execution statistics on the tab "Statistics complete"
-
-![statistics_complete](https://user-images.githubusercontent.com/12431839/48320065-3c52b880-e626-11e8-838f-0d31bef4f969.png)
-
 
 # All tasks
 
@@ -39,6 +27,13 @@ Task in work can be viewed in the "Task in work" tab and the can be marked as co
 Completed tasks can be viewed in the "Completed Tasks" tab and they can be marked as updated or deleted
 
 ![completed_tasks](https://user-images.githubusercontent.com/12431839/48307628-e9afc880-e561-11e8-9993-5f79d8358e1f.png)
+
+
+# Statistics complete
+
+You can see the task execution statistics on the tab "Statistics complete"
+
+![statistics_complete](https://user-images.githubusercontent.com/12431839/48320065-3c52b880-e626-11e8-838f-0d31bef4f969.png)
 
 
 # License
