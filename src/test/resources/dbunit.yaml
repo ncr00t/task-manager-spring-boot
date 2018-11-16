@@ -1,8 +1,0 @@
-cacheConnection: true
-leakHunter: false
-
-# connectionConfig:
-#  driver: ""
-#  url: ""
-#  user: ""
-#  password: ""
