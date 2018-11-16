@@ -8,6 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
+import java.util.List;
+
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 
@@ -20,12 +22,50 @@ import static org.mockito.Mockito.*;
 @ContextConfiguration
 public class TaskServiceTest{
 
+    private final int ZERO = 0;
+
     @MockBean
     private TaskService taskService;
 
     @Test
     public void taskService_should_be_not_null(){
         assertNotNull(taskService);
+    }
+
+    @Test
+    public void if_called_method_findAllTasks_then_allTasksList_size_more_or_equal_zero(){
+        List<Task> allTasksList = taskService.findAllTasks();
+        assertThat(allTasksList.size(), is(greaterThanOrEqualTo(ZERO)) );
+    }
+
+    @Test
+    public void if_called_method_findAllTasks_then_allTasksList_not_equal_null(){
+        List<Task> allTasksList = taskService.findAllTasks();
+        assertNotNull(allTasksList);
+    }
+
+    @Test
+    public void if_called_method_findAllCompletedTasks_then_completedTaskList_size_more_or_equal_zero(){
+        List<Task> completedTasksList = taskService.findAllCompletedTasks();
+        assertThat(completedTasksList.size(), is(greaterThanOrEqualTo(ZERO)) );
+    }
+
+    @Test
+    public void if_called_method_findAllCompletedTasks_then_completedTaskList_not_equal_null(){
+        List<Task> completedTaskList = taskService.findAllCompletedTasks();
+        assertNotNull(completedTaskList);
+    }
+
+    @Test
+    public void if_called_method_findAllTasksInWork_then_tasksInWorkList_size_more_or_equal_zero(){
+        List<Task> tasksInWorkList = taskService.findAllTasksInWork();
+        assertThat(tasksInWorkList.size(), is(greaterThanOrEqualTo(ZERO)) );
+    }
+
+    @Test
+    public void if_called_method_findAllTasksInWork_then_tasksInWorkList_not_equal_null(){
+        List<Task> tasksInWorkList = taskService.findAllTasksInWork();
+        assertNotNull(tasksInWorkList);
     }
 
     @Test
