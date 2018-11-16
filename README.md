@@ -1,5 +1,5 @@
 # task-manager-spring-boot
-This task manager developed using Spring Boot, Spring Data, Hibernate, Bootstrap and JSP.
+This task manager developed using Spring Boot, Spring Data, Hibernate, Bootstrap, Charts.js and JSP.
 
 # About
 
