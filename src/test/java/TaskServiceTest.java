@@ -69,7 +69,7 @@ public class TaskServiceTest{
     }
 
     @Test
-    public void if_tasks_found_by_name_then_return_list(){
+    public void if_tasks_found_called_method_getTaskByName_then_return_list(){
         String taskName = "TaskName";
         Task task = new Task(       taskName,
                         "Description",
@@ -80,7 +80,7 @@ public class TaskServiceTest{
     }
 
     @Test
-    public void if_tasks_not_found_by_name_then_return_empty_list(){
+    public void if_tasks_not_found_called_method_getTaskByName_then_return_empty_list(){
         String taskName = "someName";
         when(taskService.getTaskByName(taskName)).thenReturn(emptyList());
 
@@ -90,7 +90,7 @@ public class TaskServiceTest{
     }
 
     @Test
-    public void if_tasks_foound_by_date_then_return_list(){
+    public void if_tasks_found_called_method_getTaskByDateCreated_then_return_list(){
         Date dateCreated = new Date(01/01/2018);
 
         Task task = new Task(  "TaskName",
@@ -103,7 +103,7 @@ public class TaskServiceTest{
     }
 
     @Test
-    public void if_tasks_not_found_by_date_then_return_empty_list(){
+    public void if_tasks_not_found_called_method_getTaskByDateCreated_then_return_empty_list(){
         Date dateCreated = new Date(01/01/2018);
 
         when(taskService.getTaskByDateCreated(dateCreated)).thenReturn(emptyList());
