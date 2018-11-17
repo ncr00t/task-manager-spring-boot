@@ -16,8 +16,12 @@ import java.util.Date;
 @Controller
 public class TasksController {
 
-    @Autowired
     private TaskService taskService;
+
+    @Autowired
+    public TasksController(TaskService taskService) {
+        this.taskService = taskService;
+    }
 
     @GetMapping("/")
     public String home(HttpServletRequest request){
@@ -114,6 +118,19 @@ public class TasksController {
         request.setAttribute("countAllTasks", countAllTasks);
         request.setAttribute("countCompletedTasks", countCompletedTasks);
         request.setAttribute("mode", "MODE_SHOW_STATISTICS_COMPLETE");
+        return "index";
+    }
+
+    @GetMapping("/statisticsByStagesComplete")
+    public String statisticsByStagesComplete(HttpServletRequest request){
+        int countAllTasks = taskService.findAllTasks().size();
+        int countCompletedTasks = taskService.findAllCompletedTasks().size();
+        int countTasksInWork = taskService.findAllTasksInWork().size();
+
+        request.setAttribute("countAllTasks", countAllTasks);
+        request.setAttribute("countCompletedTasks", countCompletedTasks);
+        request.setAttribute("countTasksInWork", countTasksInWork);
+        request.setAttribute("mode", "MODE_SHOW_STATISTICS_BY_STAGES_COMPLETE");
         return "index";
     }
 }
