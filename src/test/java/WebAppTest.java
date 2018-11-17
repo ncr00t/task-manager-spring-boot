@@ -14,6 +14,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
 import static org.mockito.Mockito.doReturn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -42,9 +43,9 @@ public class WebAppTest extends ApplicationTest{
         String validRequestForGetAllTasks = "/tasks";
         ResultActions actionsForGetAllTasks = mockMvc.perform(get(validRequestForGetAllTasks));
         actionsForGetAllTasks
-                            .andExpect(
-                                    status()
-                                            .isOk());
+                             .andExpect(
+                                        status()
+                                                .isOk());
 
     }
 
@@ -57,8 +58,8 @@ public class WebAppTest extends ApplicationTest{
         ResultActions actionsForGetAllTasks = mockMvc.perform(get(invaidRequestForGetAllTasks));
         actionsForGetAllTasks
                              .andExpect(
-                                     status()
-                                             .isNotFound());
+                                         status()
+                                                 .isNotFound());
 
     }
 
@@ -136,4 +137,21 @@ public class WebAppTest extends ApplicationTest{
                                   .isNotFound());
     }
 
+    @Test
+    public void if_valid_request_for_show_statisticsByStagesComplete_then_status_request_should_be_ok() throws Exception{
+        String validRequestForShowStatisticsComplete = "/statisticsByStagesComplete";
+        mockMvc.perform(get(validRequestForShowStatisticsComplete))
+                .andExpect(
+                             status()
+                                     .isOk());
+    }
+
+    @Test
+    public void if_invalid_request_for_show_statisticsByStagesComplete_then_status_request_should_be_not_found() throws Exception{
+        String invalidRequestForShowStatisticsComplete = "/statisticsByStagesCompletee";
+        mockMvc.perform(get(invalidRequestForShowStatisticsComplete))
+                .andExpect(
+                            status()
+                                    .isNotFound());
+    }
 }
