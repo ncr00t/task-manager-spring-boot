@@ -81,7 +81,7 @@
         <c:when test="${mode == 'MODE_SHOW_STATISTICS_COMPLETE'}">
             <div class="container" id="statisticsDiv">
                 <c:choose>
-                    <c:when test="${countCompletedTasks == 0 && countTasksInWork == 0}">
+                    <c:when test="${countCompletedTasks == 0 && countAllTasks == 0}">
                         <h3>No created tasks</h3>
                     </c:when>
                     <c:otherwise>
