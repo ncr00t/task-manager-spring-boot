@@ -26,6 +26,13 @@ public class Task implements Serializable {
         this.finished = finished;
     }
 
+    public Task(String name, String description, Date dateCreated) {
+        this.name = name;
+        this.description = description;
+        this.dateCreated = dateCreated;
+        this.finished = false;
+    }
+
     public int getId() {
         return id;
     }
