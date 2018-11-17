@@ -28,12 +28,12 @@
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav mr-auto mt-2 mt-lg-0">
-                <li><a class="nav-link" href="/"><span class="fas fa-home"></span>  Home </a></li>
                 <li><a class="nav-link" href="createTask"><span class="fas fa-plus"></span>  Add Task</a></li>
                 <li><a class="nav-link" href="tasks"><span class="far fa-list-alt"></span> All Tasks</a> </li>
                 <li><a class="nav-link" href="tasksInWork"><span class="fas fa-clipboard-list"></span> Tasks in work</a> </li>
                 <li><a class="nav-link" href="completedTasks"><span class="fas fa-clipboard-check"></span> Completed Tasks</a> </li>
                 <li><a class="nav-link" href="statisticsComplete"><span class="fas fa-chart-bar"></span> Statistics complete</a> </li>
+                <li><a class="nav-link" href="statisticsByStagesComplete"><span class="fas fa-chart-pie"></span> Statistics by stages complete</a> </li>
             </ul>
         </div>
         <div class="navbar-right row" id="divForSearchByName">
@@ -89,6 +89,23 @@
                         <input id='countAllTasks' type='hidden' value='${countAllTasks}' />
                         <input id='countCompletedTasks' type='hidden' value='${countCompletedTasks}'/>
                         <script type="text/javascript" src="../../static/js/drawChart.js"></script>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+        </c:when>
+
+        <c:when test="${mode == 'MODE_SHOW_STATISTICS_BY_STAGES_COMPLETE'}">
+            <div class="container" id="statisticsDiv">
+                <c:choose>
+                    <c:when test="${countAllTasks == 0 && countCompletedTasks == 0 && countTasksInWork == 0}">
+                        <h3>No created tasks</h3>
+                    </c:when>
+                    <c:otherwise>
+                        <canvas id="pieChartStatisticsByStagesComplete" width="300px", height="200px"></canvas>
+                        <input id='countAllTasks' type='hidden' value='${countAllTasks}' />
+                        <input id='countCompletedTasks' type='hidden' value='${countCompletedTasks}'/>
+                        <input id='countTasksInWork' type="hidden" value='${countTasksInWork}'/>
+                        <script type="text/javascript"  src="../../static/js/drawChartByStagesComplete.js"></script>
                     </c:otherwise>
                 </c:choose>
             </div>
