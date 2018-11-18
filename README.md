@@ -19,7 +19,7 @@ All tasks are shown here and they can be marked as completed or edited.
 
 Task in work can be viewed in the "Task in work" tab and the can be marked as completed or updated
 
-![tasks_in_work](https://user-images.githubusercontent.com/12431839/48307625-e0bef700-e561-11e8-93bf-29c67d7ec1ee.png)
+![tasks_in_work](https://user-images.githubusercontent.com/12431839/48678586-53e5f000-eb96-11e8-94b2-376a0dcabaa5.png)
 
 
 # Completed tasks
