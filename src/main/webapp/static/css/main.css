@@ -25,9 +25,15 @@ a.disabled {
 footer{
     position:absolute;
     bottom:0;
+    left: 0;
     width:100%;
     height:60px;
 }
+
+.footerLink{
+    text-decoration: #0069d9;
+}
+
 .btn-outline-secondary{
     background-color: #ffffff;
     border: 10px double #1E90FF;

@@ -239,12 +239,14 @@
             <p class="white-txt">
                 <span class="fas fa-tasks fa-lg siteLabel"></span> my-task-manager.com &copy; 2018
             </p>
-            <hr class="dark-line">
-            <a class="link" href="/">Home</a>&nbsp
-            <a class="link" href="createTask">Add task</a>&nbsp
-            <a class="link" href="tasks">Show All Tasks </a>
-            <br><br>
-            <p class="white-txt small">All rights reserved</p>
+              <hr class="dark-line">
+             <a class="link footerLink" href="/">Home</a>&nbsp
+             <a class="link" href="createTask">Add task</a>&nbsp
+             <a class="link" href="tasks">All Tasks </a>
+             <a class="link" href="tasksInWork">Tasks in work</a>
+             <a class="link" href="completedTasks">Completed Tasks</a>
+             <br><br>
+            <p class="text-white small">All rights reserved</p>
         </div>
     </footer>
 
