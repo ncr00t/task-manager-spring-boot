@@ -1,6 +1,26 @@
 # task-manager-spring-boot
 This task manager developed using Spring Boot, Spring Data, Hibernate, Bootstrap, Charts.js and JSP.
 
+# Getting Started
+These instructions will get you a copy of the project up and running on your local machine
+
+Usage
+1. Clone the repository
+
+   git clone https://github.com/ncr00t/task-manager-spring-boot.git
+
+2. Open IntelliJ IDE 
+
+3. Press button "Import"
+
+4. Select maven project and press button "Next"
+
+5. After in all cases press "Next"
+
+6. Press "Run" button 
+
+7. In browser enter "localhost:8080" and press button "Enter"
+
 # About
 
 The application being developed is a simple task manager for creating, editing, modifying, deleting and searching tasks
