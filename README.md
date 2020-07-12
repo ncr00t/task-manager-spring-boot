@@ -62,5 +62,5 @@ or see statistics by stages complete: All tasks, Task in work, Completed Tasks
 
 # License
 
-Copyright (c) 2018 Ivanisenko Roman Licensed under the MIT license.
+Copyright (c) 2018 Ivanisenko Roman Licensed under the [MIT license](LICENSE).
 
